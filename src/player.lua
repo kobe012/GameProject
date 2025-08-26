@@ -24,6 +24,22 @@ end
 function Player:update(dt)
 	self:move(dt)
 	self.currentAnimation:update(dt)
+
+	if Player.x < 10 then
+		Player.x = 10
+	end
+
+	if Player.y < 1 then
+		Player.y = 1
+	end
+
+	if Player.x > 840 - Player.width * 2 then
+		Player.x = 840 - Player.width * 2
+	end
+
+	if Player.y > 620 - Player.height * 2 then
+		Player.y = 621 - Player.height * 2
+	end
 end
 
 function Player:move(dt)
@@ -58,6 +74,6 @@ function Player:move(dt)
 end
 
 function Player:draw()
-	self.currentAnimation:draw(self.sprite, self.x, self.y, nil, 2)
+	self.currentAnimation:draw(self.sprite, self.x, self.y, nil, 2, nil, 2)
 end
 return Player
